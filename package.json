@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build -prod"
+    "postinstall": "ng build --aot --production"
   },
   "private": true,
   "dependencies": {
@@ -33,7 +33,8 @@
     "sockjs-client": "^1.4.0",
     "stompjs": "^2.3.3",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "typescript": "^3.8.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.4",
