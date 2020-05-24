@@ -1,0 +1,26 @@
+.list-group-item{
+  cursor: pointer;
+}
+
+.input-label{
+  background:rgba(0,0,0,0);
+  border:none;
+  cursor: pointer;
+}
+
+.input-label-lg{
+  background:rgba(0,0,0,0);
+  border:none;
+  cursor: pointer;
+  font-size: large;
+  font-weight: bold;
+}
+.button-type{
+  background: #57BB90;
+}
+.button-dish{
+  background: #01524B;
+}
+.table-body-color{
+  background: #F9EFE9;
+}

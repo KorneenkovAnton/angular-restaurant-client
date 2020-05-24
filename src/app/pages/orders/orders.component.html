@@ -1,0 +1,47 @@
+<h1>Current orders</h1>
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <table class="table table-bordered table-striped table-body-color">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Info</th>
+        <th scope="col">Table/Phone</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let order of orders" (click)="orderSelected(order)"
+          [ngClass]="{'highlight': order.dishes == currentDishes}">
+        <td>{{ order.id }}</td>
+        <td>{{ order.date | date:'dd.MM HH:mm'}}</td>
+        <td>{{ order.status }}
+          <button class="btn table-button-done" (click)="doneOrder(order)">Done</button>
+          <button class="btn table-button-delete" (click)="removeOrder(order)">Delete</button>
+        </td>
+        <td>{{ order.info }}</td>
+        <td *ngIf="order.table != null">{{ order.table.name }}</td>
+        <td *ngIf="order.user != null && order.table == null">{{order.user.phonenumber}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <table class="table table-bordered table-striped table-body-color">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Dish name</th>
+        <th scope="col">Number</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let orderDetails of currentDishes">
+        <td>{{orderDetails.dish.name}}</td>
+        <td>{{orderDetails.num}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

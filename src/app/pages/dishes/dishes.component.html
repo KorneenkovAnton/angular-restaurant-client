@@ -1,0 +1,56 @@
+<div class="container">
+  <!-- Note menu -->
+  <div class="row" style="margin-top:12px;">
+    <div class="col-md-8">
+      <input type="text"
+             class="form-control"
+             style="width: 100%;"
+             placeholder="Search dish...">
+    </div>
+    <div class="col-md-4">
+      <button type="button"
+              class="btn button-type pull-right"
+              (click)="createType()"
+              style="margin-left:12px;"><i class="fa fa-plus"></i> New Type
+      </button>
+      <button type="button"
+              [disabled]="currentType == null"
+              (click)="openDialogEvent()"
+              class="btn button-dish pull-right"
+              style="margin-left:12px;"><i class="fa fa-plus"></i> New Dish
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <br>
+      <div class="list-group list-group-flush">
+
+        <a *ngFor="let type of types"
+           (click)="selectType(type)"
+           [style.background]="'url('+type.imagePath+')'"
+           class="list-group-item table-body-color" style="margin-bottom: 5pt;padding-bottom: 5pt">
+          <input [(ngModel)]="type.name" [ngClass]="{'highlight': type == currentType}" (change)="updateTypes(type)" type="text" class="input-label"/>
+          <mat-card-actions>
+            <button mat-button color="accent" (click)="onDownloadClick()">
+              <mat-icon>file_upload</mat-icon>
+              Upload
+            </button>
+          </mat-card-actions>
+          <input type="file" name="test" #fileUpload class="form-control-file" (change)="uploadFile()" accept="image/jpeg" style="display: none">
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="row">
+        <app-dish *ngFor="let dish of dishes"
+                  [dish]="dish">
+        </app-dish>
+      </div>
+    </div>
+  </div>
+</div>
