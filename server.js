@@ -9,7 +9,7 @@ app.use(express.static(__dirname + '/dist/angular-restaurant-client'));
 
 app.get('/*', function(req,res) {
 
-  res.sendFile(path.join(__dirname+'/dist/angular-restaurant-client/src/app/app.component.html'));
+  res.sendFile(path.join(__dirname+'/dist/angular-restaurant-client/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
