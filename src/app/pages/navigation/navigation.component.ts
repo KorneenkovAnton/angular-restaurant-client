@@ -12,4 +12,8 @@ export class NavigationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  logout() {
+    localStorage.clear();
+    location.replace("/orders");
+  }
 }
