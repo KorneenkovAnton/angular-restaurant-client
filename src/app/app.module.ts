@@ -25,6 +25,7 @@ import {WebSocketService} from "./services/web-socket.service";
 import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
 import {MatRadioModule} from "@angular/material/radio";
+import { CarouselComponent } from './pages/carousel/carousel.component';
 
 
 declare var require: any;
@@ -52,7 +53,7 @@ const appRoutes :Routes = [
   },
   {
     path:'',
-    component:OrdersComponent,
+    component:CarouselComponent,
     pathMatch:'full'
   }
 ];
@@ -66,7 +67,8 @@ const appRoutes :Routes = [
     NavigationComponent,
     DishComponent,
     CreateDishDialogComponent,
-    TablesComponent
+    TablesComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,

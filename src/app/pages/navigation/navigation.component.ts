@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
+  isVisible: any;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.isVisible = localStorage.getItem("refreshToken") != null
   }
 
   logout() {

@@ -11,20 +11,24 @@
 
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item active" [ngStyle]="{'visibility':isVisible ? 'visible' : 'hidden'}">
         <a class="nav-link nav-link-color" routerLink="/dishes">Dishes</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" [ngStyle]="{'visibility':isVisible ? 'visible' : 'hidden'}">
         <a class="nav-link nav-link-color" routerLink="/orders">Orders</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" [ngStyle]="{'visibility':isVisible ? 'visible' : 'hidden'}">
         <a class="nav-link nav-link-color" routerLink="/tables">Tables</a>
       </li>
+
     </ul>
-    <ul class="navbar-nav ml-auto">
+    <li class="navbar-item ml-auto" [ngStyle]="{'visibility':!isVisible ? 'visible' : 'hidden'}">
+      <a class="nav-link nav-link-color" routerLink="/login">Login</a>
+    </li>
+    <ul class="navbar-nav ml-auto" [ngStyle]="{'visibility':isVisible ? 'visible' : 'hidden'}">
       <li class="nav-item">
         <a class="nav-link nav-link-color" routerLink="/tables" (click)="logout()">Logout</a>
-      </li>
     </ul>
   </div>
 </nav>
+

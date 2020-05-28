@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TableService} from "../../services/table.service";
 import {Table} from "../../entity/table";
+import {ReserveEntity} from "../../entity/reserve-entity";
 
 @Component({
   selector: 'app-tables',
@@ -9,27 +10,27 @@ import {Table} from "../../entity/table";
 })
 export class TablesComponent implements OnInit {
   tables:Table[];
-  currentTable:Table;
+  reserveTable:ReserveEntity[];
+  currentReserveTable:ReserveEntity;
 
   constructor(private tableService:TableService) { }
 
   ngOnInit(): void {
     this.tableService.getAllTables().subscribe(
-      res=>{this.tables = res},
+      res=>{this.reserveTable = res},
       error => {alert("Tables Error")}
     )
   }
 
-  tableSelected(table:Table):void{
-    this.currentTable = table;
+  tableSelected(table:ReserveEntity):void{
+    this.currentReserveTable = table;
   }
 
-  updateTable(table: Table) :void{
-    table.status = "Free";
-    table.user = null;
-    table.reservationDate = null;
-    this.tableService.updateTable(table).then(
+  updateTable(table: ReserveEntity) :void{
+    this.reserveTable.splice(this.reserveTable.indexOf(table),1);
+    this.tableService.updateTable(table.id).subscribe(
       data=> {
+        alert(data);
       },
       error=>{alert("Table update error")}
     )

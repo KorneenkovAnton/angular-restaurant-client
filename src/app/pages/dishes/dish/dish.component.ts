@@ -44,6 +44,7 @@ export class DishComponent implements OnInit {
       res => {
         console.log(res);
         this.dish.imagePath = this.BASE_URL + res;
+        window.location.reload()
       }
     )
   }

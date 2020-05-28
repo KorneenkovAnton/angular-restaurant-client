@@ -4,17 +4,17 @@
     <thead class="thead-dark">
     <tr>
       <th scope="col">Table name</th>
-      <th scope="col">Status</th>
+      <th scope="col">Cancel</th>
       <th scope="col">User phonenumber</th>
       <th scope="col">Reservation date</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let table of tables" (click)="tableSelected(table)"
-        [ngClass]="{'highlight': table == currentTable}">
-      <td>{{ table.name }}</td>
-      <td>{{ table.status }}
-        <button *ngIf="table.status === 'Reserved'" (click)="updateTable(table)" class="btn table-button-done">Abort</button>
+    <tr *ngFor="let table of reserveTable" (click)="tableSelected(table)"
+        [ngClass]="{'highlight': table == currentReserveTable}">
+      <td>{{ table.tables.name }}</td>
+      <td>
+        <button  (click)="updateTable(table)" class="btn table-button-done">Cancel</button>
       </td>
       <td *ngIf="table.user != null">{{ table.user.phonenumber}}</td>
       <td *ngIf="table.reservationDate != null">{{ table.reservationDate | date:'dd.MM HH:mm'}}</td>

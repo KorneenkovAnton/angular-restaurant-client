@@ -128,6 +128,7 @@ export class DishesComponent implements OnInit {
       res => {
         console.log(res);
         this.currentType.imagePath = this.BASE_URL + newImageName;
+        window.location.reload();
       },
       error => {
         alert("File Upload Error");

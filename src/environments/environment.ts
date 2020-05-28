@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiURL: 'https://my-restaurant-diploma.herokuapp.com'
-  // apiURL: 'http://localhost:8080'
+  // apiURL: 'http://localhost:8282'
 };
 
 /*
