@@ -10,10 +10,9 @@ import {environment} from "../../environments/environment";
 })
 export class AuthenticationService {
 
-  private BASE_URL = environment.apiURL+"/resto/V1/auth";
-  //public BASE_URL = "http://localhost:8080/resto/V1/auth";
+  private BASE_URL = environment.apiURL + '/resto/V1/auth';
   private LOGIN_URL = this.BASE_URL + '/login';
-  private REFRESH_TOKEN_URL = this.BASE_URL + "/refresh";
+  private REFRESH_TOKEN_URL = this.BASE_URL + '/refresh';
 
   constructor(private http: HttpClient) {
   }
@@ -23,7 +22,7 @@ export class AuthenticationService {
   }
 
   refresh(refreshToken: string): Observable<AuthenticationResponseDto> {
-    let req = {
+    const req = {
       refreshToken: refreshToken
     };
     return this.http.post<AuthenticationResponseDto>(this.REFRESH_TOKEN_URL, req);
